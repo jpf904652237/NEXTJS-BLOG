@@ -1,13 +1,3 @@
----
-title: '手写promise'
-date: '2023-04-04'
----
-### 手写Promise
-* 初始化 & 异步调用
-* then catch链式调用
-* API .resolve .reject .all .race
-
-```
 /**
  * @description: Promise的简单实现
  * @author: jipengfei
@@ -149,4 +139,3 @@ MyPromise.race = function (promiseList = []) {
   })
   return p1
 }
-```
