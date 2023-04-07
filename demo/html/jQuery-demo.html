@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery</title>
+</head>
+<script src="../js/jQuery-demo.js"></script>
+<body>
+  <p>一段文字1</p>
+  <p>一段文字2</p>
+  <p>一段文字3</p>
+  <p>一段文字4</p>
+</body>
+<script>
+  const $p = new jQuery('p')
+  console.log('$p===>', $p);
+  $p.get(1)
+  $p.each((elem) => console.log(elem.nodeName))
+  $p.on('click', () => alert('clicked'))
+
+  // 插件
+  // $p.dialog('asd')
+</script>
+</html>
