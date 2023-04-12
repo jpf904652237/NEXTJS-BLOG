@@ -90,7 +90,7 @@ absolute依据最近一层的定位元素定位
 * absolute relative fixed  body
 ```
 * 居中对齐有哪些实现方式？
-水平剧中 垂直居中
+水平居中 垂直居中
 ```
 水平剧中
 * inline元素： text-align：center
