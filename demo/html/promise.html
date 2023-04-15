@@ -10,14 +10,14 @@
   <h1>MyPromise</h1>
   <script src="../js/MyPromise.js"></script>
   <script>
-    const p1 = new MyPromise((resolve, reject) => {
-    // const p1 = new Promise((resolve, reject) => {
-      // resolve(100);
-      // reject('错误信息...')
-      setTimeout(() => {
-        resolve(100);
-      }, 1000);
-    });
+    // const p1 = new MyPromise((resolve, reject) => {
+    // // const p1 = new Promise((resolve, reject) => {
+    //   // resolve(100);
+    //   // reject('错误信息...')
+    //   setTimeout(() => {
+    //     resolve(100);
+    //   }, 1000);
+    // });
 
     // const p11 = p1.then(data1 => {
     //   console.log('data1===>', data1);
@@ -33,18 +33,43 @@
     //   console.error('err', err);
     // })
 
-    const p2 = MyPromise.resolve(200)
-    const p3 = MyPromise.resolve(300)
+    // const p2 = MyPromise.resolve(200)
+    // const p3 = MyPromise.resolve(300)
 
-    const p4 = MyPromise.resolve(200)
-    const p5 = MyPromise.reject('错误信息...')
-    // const p6 = MyPromise.all([p1, p2, p3]) // 传入promise数组，等待所有的都完成，才会成功，否则失败
-    const p7 = MyPromise.race([p1, p2, p3]) // 传入promise数组，只要有一个完成，就会成功，否则失败
-    p7.then(data => {
-      console.log('data===>', data);
-    }).catch(err => {
-      console.error('err', err);
+    // const p4 = MyPromise.resolve(200)
+    // const p5 = MyPromise.reject('错误信息...')
+    // // const p6 = MyPromise.all([p1, p2, p3]) // 传入promise数组，等待所有的都完成，才会成功，否则失败
+    // const p7 = MyPromise.race([p1, p2, p3]) // 传入promise数组，只要有一个完成，就会成功，否则失败
+    // p7.then(data => {
+    //   console.log('data===>', data);
+    // }).catch(err => {
+    //   console.error('err', err);
+    // })
+
+    const promise1 = new Promise((resolve, reject) => {
+      console.log('promise1'); // 1
+      setTimeout(() => {
+        resolve('success promise1')
+      }, 0)
     })
+    const promise2 = promise1.then((res) => {
+      console.log('success promise2'); // 3
+      return 666
+    })
+    const promise3 = promise2.then((res) => {
+      console.log('success promise3:', res); // 4 res=666
+      return Promise.resolve(818)
+    })
+    promise3.then((res) => {
+      console.log('success promise4:', res); // 5 res=818
+    })
+    setTimeout(() => {
+      console.log('timer duration=10'); // 7
+    },10)
+    setTimeout(() => {
+      console.log('timer duration=0'); // 6
+    },0)
+    console.log('juset test'); // 2
   </script>
 </body>
 </html>
