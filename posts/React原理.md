@@ -59,3 +59,19 @@ date: '2023-04-16'
     - setState(newState) --> dirtyComponent(可能有子组件)
     - render()生成newVnode
     - patch(vnode, newVnode)更新dom
+  - 更新的两个阶段
+    - reconciliation阶段，js计算，diff算法
+    - commit阶段，dom渲染
+7. React性能优化
+  - 可能会有性能问题
+    - JS是单线程，且和DOM渲染共用一个线程
+    - 当组件足够复杂，组件更新计算和渲染都压力大
+    - 同时在有DOM操作的情况下，会导致页面卡顿
+
+  - 解决方案fiber
+    - 将reconciliation阶段进行任务拆分（commit无法拆分）
+    - DOM需要渲染时暂停，空闲时恢复
+    - 通过window.requestIdleCallback实现，兼容性不好
+
+8. React原理总结
+![React原理思维导图](/images/React原理思维导图.png)
